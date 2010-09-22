@@ -1,10 +1,7 @@
-//require.paths.unshift('../lib/node-mongodb-native/lib/');
 
-
-	var Db = require('./../lib/node-mongodb-native/lib/mongodb/db').Db,
-    ObjectID = require('./../lib/node-mongodb-native/lib/mongodb/bson/bson').ObjectID,
-    Server = require('./../lib/node-mongodb-native/lib/mongodb/connection').Server,
-	sys = require('sys');
+	var Db = require('./lib/node-mongodb-native/lib/mongodb/db').Db,
+    ObjectID = require('./lib/node-mongodb-native/lib/mongodb/bson/bson').ObjectID,
+    Server = require('./lib/node-mongodb-native/lib/mongodb/connection').Server,
 
 	var DataProvider = function (host, port, dbname, collectionName){
 	  this._collectionName = collectionName;
@@ -125,38 +122,7 @@
 			var self = this;
 			this.getCollection(function(error, collection) {
 				if( error ) callback(error)
-				else {
-				
-					
-				
-					//var returnArray = true;
-					//if( typeof(events.length)=="undefined") {
-					//	returnArray = false;
-					//	events = [events]; //HERE IS THE ISSUE
-					//}
-					
-					
-					
-					//for( var i =0;i< events.length;i++ ) {
-					//	sys.puts("====================== " + (events[i]._id instanceof ObjectID));
-		
-					//	events[i].created_at = new Date();
-					//}
-					
-					//sys.puts(JSON.stringify(events[0]));
-					//*/
-					
-					//collection.update( { name: "Joe" }, { name: "Joe", age: 20 }, true );
-					
-					
-					//collection.update(doc, function(error, results) {
-					
-					//collection.insert - this will insert multiple items (if an array is passed). IT DOESNT UPDATE EXISTING AND WILL THROW ERROR
-					
-					//collection.save - this will upsert if required...
-					
-					//collection.update({'_id': doc._id},modifier, {upsert: true}, function(error,result) { //this applies modifier to every item found by the query {'_id': doc._id}
-					
+				else {	
 					collection.save(doc, function() {
 						self.db.lastError(function(err, error){						
 							if(error && error.length && error[0] && error[0].err!=null) { 	
