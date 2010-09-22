@@ -1,7 +1,7 @@
 
 	var Db = require('./lib/node-mongodb-native/lib/mongodb/db').Db,
     ObjectID = require('./lib/node-mongodb-native/lib/mongodb/bson/bson').ObjectID,
-    Server = require('./lib/node-mongodb-native/lib/mongodb/connection').Server,
+    Server = require('./lib/node-mongodb-native/lib/mongodb/connection').Server;
 
 	var DataProvider = function (host, port, dbname, collectionName){
 	  this._collectionName = collectionName;
