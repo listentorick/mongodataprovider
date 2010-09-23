@@ -76,7 +76,16 @@ BaseAdapter.prototype = {
 			schema.state = [];
 		}
 		return schema;
+	},
+	
+	adaptObjectIdToHexString: function(objectId) {
+		return objectId.toHexString();
+	},
+	
+	adaptHexStringToObjectId: function(hexString) {
+		return  ObjectID.createFromHexString(hexString);
 	}
+	
 	
 };
 
