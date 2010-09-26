@@ -14,6 +14,10 @@
 		ensureIndex: function(query, unique, callback) {
 			this.db.ensureIndex(this._collectionName, query, unique, callback);
 		},
+		
+		createPrimaryKey: function() {
+			return ObjectID.createPk();
+		},
 	
 		getCollection: function(callback) {
 		  this.db.collection(this._collectionName, function(error, collection) {
